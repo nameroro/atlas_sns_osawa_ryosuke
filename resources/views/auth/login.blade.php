@@ -2,19 +2,26 @@
 
 @section('content')
 
-{!! Form::open() !!}
+<section>
 
-<p>AtlasSNSへようこそ</p>
+  <div class="form-a">
+    {!! Form::open() !!}
+    <p class="welcome">AtlasSNSへようこそ</p>
+    <div class="form-content">
+      {{ Form::label('e-mail') }}
+      {{ Form::text('mail',null,['class' => 'input form-control']) }}
+    </div>
+    <div class="form-content">
+      {{ Form::label('password') }}
+      {{ Form::password('password',['class' => 'input form-control']) }}
+    </div>
+    <div class="btn-form">
+      {{ Form::submit(' LOGIN ', ['class'=>'btn btn-danger']) }}
+    </div>
+    <p class="text"><a href="/register" class="link">新規ユーザーの方はこちら</a></p>
+    {!! Form::close() !!}
+  </div>
 
-{{ Form::label('e-mail') }}
-{{ Form::text('mail',null,['class' => 'input']) }}
-{{ Form::label('password') }}
-{{ Form::password('password',['class' => 'input']) }}
-
-{{ Form::submit('ログイン') }}
-
-<p><a href="/register">新規ユーザーの方はこちら</a></p>
-
-{!! Form::close() !!}
+</section>
 
 @endsection

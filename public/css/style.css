@@ -1,22 +1,472 @@
 @charset "utf-8";
-html{
-}
-body{
-}
-/* header *８
-header
-    background:#186AC8;
+
+/* html {}
+
+body {} */
+
+/* ログアウト画面 */
+
+
+
+/* ログイン画面 */
+/* header */
+header {
+    background: #186AC9;
+    height: 90px;
 }
 
-/* main content */
-#row{
+/*  */
+.head-container {
+    display: flex;
+}
+
+.head-content {
+    display: flex;
+    margin: 25px 20px auto auto;
+}
+
+.atlas-img {
+    height: 50px;
+    margin: 20px;
+}
+
+.head-name {
+    margin: 15px -130px 0 150px;
+    color: #fff;
+}
+
+/* main content 右側の部分 */
+#row {
     display: flex;
     flex-flow: row wrap;
 }
-#container{
+
+#container {
     flex: 0 0 80%;
 }
-#side-bar{
-    flex: 0 0 19%;
+
+#side-bar {
+    flex: 0 0 20%;
     border-left: 1px solid #727272;
+}
+
+#confirm {
+    border-bottom: 1px solid #aaa;
+    padding: 15px;
+
+}
+
+.count {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.page-list {
+    width: 50%;
+    margin: 0 0 20px 100px;
+}
+
+.page-search {
+    width: 40%;
+    margin: 10% 30%;
+}
+
+.link {
+    font-size: 0.9em;
+    text-decoration: none;
+}
+
+a:link {
+    color: #fff;
+}
+
+a:visited {
+    color: #fff;
+}
+
+.link:hover {
+    color: #fff;
+}
+
+
+/* 必要に応じて編集しご自身でSNS課題のレイアウトのようにカスタマイズしてください。 */
+.content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.icon {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    /* border: 0.1em solid #aaa; */
+}
+
+.img {
+    width: 30px;
+    height: 30px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+/*アコーディオン全体*/
+.menu {
+    /* border: solid red; */
+    width: 15vw;
+    padding: 15px 10px 20px;
+}
+
+.menu a {
+    display: block;
+    color: #999;
+    text-decoration: none;
+    padding: 30px;
+    margin: -30px;
+}
+
+.menu input {
+    display: none;
+    /*チェックボックスを隠す*/
+}
+
+/*バー部分*/
+.menu label {
+    cursor: pointer;
+    display: block;
+    text-decoration: none;
+    line-height: 1;
+    position: relative;
+    padding: 10px;
+}
+
+/*開いたときに表示される部分*/
+.menu ul {
+    margin: 30px 0 0 -10px;
+    list-style: none;
+}
+
+.menu li {
+    height: 0;
+    overflow-y: hidden;
+    transition: padding-bottom 0.5s, padding-top 0.5s;
+    /*閉じるときのアニメーション*/
+    -webkit-transition: padding-bottom 0.5s, padding-top 0.5s;
+    -moz-transition: padding-bottom 0.5s, padding-top 0.5s;
+    -ms-transition: padding-bottom 0.5s, padding-top 0.5s;
+    -o-transition: padding-bottom 0.5s, padding-top 0.5s;
+}
+
+.menu li a:hover {
+    color: #fff;
+    background-color: #000055;
+}
+
+
+#accordion:checked ~ #accordion-content li {
+    border: 2px solid #000055;
+    background-color: #fff;
+    height: 85px;
+    width: 290px;
+    text-align: center;
+    padding: 30px;
+    margin-left: -30px;
+    margin-bottom: -5px;
+    opacity: 0.99;
+}
+
+
+/*閉じた状態の矢印描画*/
+.menu label:after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: #fff 2px solid;
+    border-right: #fff 2px solid;
+    -webkit-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+    position: absolute;
+    right: 2%;
+    top: 0;
+    bottom: 15%;
+    margin: auto;
+}
+
+/*開いた状態の矢印描画*/
+.menu input[type=checkbox]:checked + label:after {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-top: #fff 2px solid;
+    border-right: #fff 2px solid;
+    -webkit-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    right: 2%;
+    top: 7%;
+    bottom: 0;
+    margin: auto;
+}
+
+/* 投稿フォーム */
+.post-container {
+    display: block;
+    height: 160px;
+    padding: 30px 60px;
+    /* margin-bottom: 10px; */
+    border-bottom: 8px solid #CCC;
+}
+
+.postman {
+    margin-top: -150px;
+}
+
+.textarea {
+    resize: none;
+    padding: 10px;
+    width: 60%;
+    height: 100px;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+}
+
+.textarea::placeholder {
+    color: #DDD;
+}
+
+.img-post {
+    margin: -60px 0 0 75%;
+    /* border: solid yellow; */
+}
+
+.timeline {
+    /* border: 4px solid red; */
+    width: 100%;
+}
+
+.post {
+    border-bottom: 1px solid #aaa;
+    display: flex;
+    padding: 20px 20px 20px 100px;
+}
+
+.post-content {
+    /* border: solid magenta; */
+    width: 100%;
+    margin: 0 15px;
+    /* display: flex; */
+}
+
+.post-username {
+    /* border: solid pink; */
+    color: #186AC9;
+}
+
+.post-text {
+    /* border: solid pink; */
+    font-size: 0.9em;
+}
+
+.post-time {
+    /* border: solid pink; */
+    position: absolute;
+    left: 70%;
+    font-size: 0.9em;
+}
+
+.post-img {
+    /* border: solid purple; */
+    display: flex;
+    margin: auto 0 0 auto;
+}
+
+.post-edit {
+    /* border: solid pink; */
+    padding: 0 10px 0 10px;
+    margin-bottom: -10px;
+}
+
+
+/*ユーザー検索*/
+.srh-container {
+    /* border: solid yellow; */
+    display: flex;
+    height: 160px;
+    padding: 50px 50px;
+    border-bottom: 8px solid #CCC;
+}
+
+.srh-box {
+    /* border: solid green; */
+    width: 50%;
+}
+
+.srh-area {
+    height: 40px;
+    width: 50%;
+}
+
+.srh-area::placeholder {
+    padding-left: 10px;
+    color: #ccc;
+}
+
+.icon-srh {
+    border-radius: 5px;
+    position: absolute;
+    margin-left: 20px;
+}
+
+.keyword {
+    /* border: solid cyan; */
+    width: 50%;
+    margin: auto 0;
+}
+
+.srh-result {
+    /* border: 5px solid cyan; */
+    margin: 0 25%;
+}
+
+.srh-list {
+    /* border: solid gold; */
+    display: flex;
+    align-items: center;
+    height: 100%;
+
+}
+
+.srh-user {
+    /* border: solid pink; */
+    display: flex;
+    align-items: center;
+}
+
+.srh-list p {
+    padding: 10px;
+    justify-content: space-around;
+
+}
+
+.btn-ff {
+    /* border: solid purple; */
+    margin: 0 50px 0 auto;
+}
+
+/* フォロー/フォロワーリスト */
+.ff-container {
+    display: flex;
+    height: 160px;
+    padding: 30px 60px;
+    border-bottom: 8px solid #CCC;
+}
+
+.ff-container h2 {
+    /* border: solid black; */
+    font-weight: normal;
+    width: 180px;
+}
+
+.ff-icon {
+    /* border: solid red; */
+    display: flex;
+    flex-wrap: wrap;
+    width: 75%;
+    margin: -15px auto -15px 30px;
+}
+
+.ff-icon ul {
+    padding: 5px;
+}
+
+/* 他ユーザーのプロフィール */
+.others-container {
+    display: flex;
+    height: 160px;
+    padding: 30px 60px;
+    border-bottom: 8px solid #CCC;
+}
+
+.others-container table {
+    /* border: solid orange; */
+    width: 70%;
+    margin: 0 20px;
+}
+
+.others-container th,
+td {
+    vertical-align: middle;
+}
+
+.others-container th {
+    width: 20%;
+    font-size: large;
+}
+
+.others-container td {
+    font-size: x-large;
+}
+
+.others-container .btn-ff {
+    margin: auto 50px 0 auto;
+}
+
+/* ログインユーザーのプロフィール */
+.prf-container {
+    /* border: solid greenyellow; */
+    display: flex;
+    /* padding-bottom: 25%; */
+    margin: 5% 20%;
+}
+
+.profile {
+    /* border: solid red; */
+    width: 100%;
+    font-size: large;
+    /* margin: 30%; */
+}
+
+.profile label {
+    /* background-color: #ddd; */
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0 50px 20px;
+}
+
+.profile input {
+    /* background-color: #eee; */
+    width: 60%;
+}
+
+.profile button {
+    margin-left: 50%;
 }
